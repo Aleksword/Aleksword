@@ -2,12 +2,14 @@ package javaapplication2;
 
 import java.util.Arrays;
 import java.util.Scanner;
+
 public class myString {
 
     private String vvod;
     private String[] words;
 
-    private myString() {} // пустой конструктор, нельзя вызвать вне класса
+    private myString() {
+    } // пустой конструктор, нельзя вызвать вне класса
 
     public myString(String comp1) { // конструктор
         vvod = comp1;
@@ -22,7 +24,6 @@ public class myString {
     public String getStr() { //метод дает доступ к полю vvod
         return vvod;
     }
-
 
     public String[] sort2() { // сортировка по третьей или последней букве(2 задание)
         String[] result = Arrays.copyOf(words, words.length);
@@ -45,7 +46,7 @@ public class myString {
                 stroka += s + " ";
             }
         }
-        return (String []) stroka.split(" ");
+        return (String[]) stroka.split(" ");
     }
 
     private Boolean kekw(String first, String second) { // сравнение слов по третьей или последней букве

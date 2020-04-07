@@ -10,9 +10,9 @@ import java.io.*;
 public class File {
 
     public static void saveFile(String path, StringTask obj) throws IOException {
-            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(path));
-            oos.writeObject(obj);
-            oos.close();
+        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(path));
+        oos.writeObject(obj);
+        oos.close();
     }
 
     public static StringTask openFile(String path) throws IOException, ClassNotFoundException {

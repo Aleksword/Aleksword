@@ -4,11 +4,15 @@
  * and open the template in the editor.
  */
 package oop3;
+
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Scanner;
+
 public class Menu {
-     private Menu() {}
+
+    private Menu() {
+    }
 
     private static StringTask obj;
 
@@ -17,12 +21,12 @@ public class Menu {
     public static void mainMenu() {  //вызывается файлом
 
         while (true) {
-            System.out.println("\nМеню:\n" +
-                   "1.Работа с числами\n"+
-                    "2.Работа со строками\n" +
-                    "3.Выход\n" +
-                    "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
-                    "Введите номер пункта меню: ");
+            System.out.println("\nМеню:\n"
+                    + "1.Работа с числами\n"
+                    + "2.Работа со строками\n"
+                    + "3.Выход\n"
+                    + "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
+                    + "Введите номер пункта меню: ");
             switch (inp.nextLine()) {
                 case "1":
                     Menu.intOrder();
@@ -42,12 +46,12 @@ public class Menu {
 
     private static void stringWork() {
         while (true) {
-            System.out.println("\nМеню работы со строками:\n" +
-                    "1.Создать строку\n" +
-                    "2.Открыть файл\n" +
-                    "3.Вернуться в главное меню\n" +
-                    "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
-                    "Введите номер пункта меню: ");
+            System.out.println("\nМеню работы со строками:\n"
+                    + "1.Создать строку\n"
+                    + "2.Открыть файл\n"
+                    + "3.Вернуться в главное меню\n"
+                    + "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
+                    + "Введите номер пункта меню: ");
             switch (inp.nextLine()) {
                 case "1":
                     System.out.println("Введите строку: ");
@@ -89,12 +93,12 @@ public class Menu {
 
     private static void stringTask() {
         while (true) {
-            System.out.println("\nМеню работы со строками:\n" +
-                    "1.Сортировка слов\n" +
-                    "2.Поиск полиндромов\n" +
-                    "3.Вернуться в меню создания строки\n" +
-                    "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
-                    "Введите номер пункта меню: ");
+            System.out.println("\nМеню работы со строками:\n"
+                    + "1.Сортировка слов\n"
+                    + "2.Поиск полиндромов\n"
+                    + "3.Вернуться в меню создания строки\n"
+                    + "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
+                    + "Введите номер пункта меню: ");
             switch (inp.nextLine()) {
                 case "1":
                     String[] string_sort = obj.sortStr();
@@ -127,9 +131,10 @@ public class Menu {
         int[] arr = new int[0];
         System.out.println("Введите числа через пробел: ");
         try {
-            arr = Arrays.stream(inp.nextLine().split(" ")).mapToInt(Integer::parseInt).toArray();
-            System.out.println("Множество " + (ChisTask.check(arr) == 1 ? "упорядочено по возрастанию" :
-                    ChisTask.check(arr) == -1 ? "упорядочено по убыванию" : "не упорядочено"));
+            ChisTask chis = new ChisTask();
+            System.out.println("Множество " + (chis.check(chis.getarr()) == 1 ? "упорядочено по возрастанию"
+                    : chis.check(chis.getarr()) == -1 ? "упорядочено по убыванию" : "не упорядочено"));
+            System.out.println("_________________________________________________________________________________________________");
             System.out.println("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         } catch (Exception e) {
             System.out.println("Неверный ввод!!");
@@ -137,4 +142,3 @@ public class Menu {
     }
 
 }
-
