@@ -1,84 +1,113 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package syst_block;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
-/**
- *
- * @author aleksword
- */
 public class Shop {
+
     private int i = 0;
-    private Block[] o = {new Processor(), new MotherBoard(), new GraphicCard()};
+    private String choice;
+    private String repeat = "Y";
+    private int count, ch;
+    private ArrayList<Processor> p = new ArrayList<Processor>();
+    private ArrayList<MotherBoard> m = new ArrayList<MotherBoard>();
+    private ArrayList<GraphicCard> g = new ArrayList<GraphicCard>();
     private Scanner scan = new Scanner(System.in);
 
-  
-        public void start() {
-        while (i != 17) {
+    public void repeat() {
+        System.out.println("Выполнить ещё раз? [Y]/[N]");
+        repeat = scan.nextLine();
+        switch (repeat) {
+            case "Y":
+                repeat = "Y";
+                break;
+            case "N":
+                repeat = "N";
+                break;
+            default:
+                System.out.println("Ошибка. Введите значение заново");
+                repeat();
+                break;
+        }
+    }
+
+    public void start() {
+        while (i != 10 && repeat == "Y") {
             try {
                 System.out.println("Выберите действие");
-                System.out.println("1.Что такое процессор");
-                System.out.println("2.Что такое материнская плата");
-                System.out.println("3.Что такое видеокарта");                
-                System.out.println("4.Добавить процессор");
-                System.out.println("5.Показать процессоры");
-                System.out.println("6.Удалить все процессоры");
-                System.out.println("7.Добавить материнскую плату");
-                System.out.println("8.Показать  материнские платы");
-                System.out.println("9.Удалить все материнские платы");
-                System.out.println("10.Добавить видеокарту");
-                System.out.println("11.Показать  видеокарты");
-                System.out.println("12.Удалить все видеокарты");                
-                System.out.println("13.Выход");
+                System.out.println("1.Добавить процессор");
+                System.out.println("2.Показать процессоры");
+                System.out.println("3.Удалить все процессоры");
+                System.out.println("4.Добавить материнскую плату");
+                System.out.println("5.Показать  материнские платы");
+                System.out.println("6.Удалить все материнские платы");
+                System.out.println("7.Добавить видеокарту");
+                System.out.println("8.Показать  видеокарты");
+                System.out.println("9.Удалить все видеокарты");
+                System.out.println("10.Выход");
                 i = scan.nextInt();
                 switch (i) {
                     case 1:
-                        o[0].getInfo();
+                        p.add(new Processor());
+                        repeat = scan.nextLine();
+                        repeat();
                         break;
                     case 2:
-                        o[1].getInfo();
+                        System.out.println("Процессоры:");
+                        for (Processor proc : p) {
+                            proc.getInfo();
+                        }
+                        repeat = scan.nextLine();
+                        repeat();
                         break;
                     case 3:
-                        o[2].getInfo();
-                        break;                    
+                        p.clear();
+                        repeat = scan.nextLine();
+                        System.out.println("Готово!");
+                        repeat();
+                        break;
+
                     case 4:
-                       o[0].Create();
+                        m.add(new MotherBoard());
+                        repeat = scan.nextLine();
+                        repeat();
                         break;
                     case 5:
-                        o[0].Show();
-                        ;
+                        System.out.println("Материнские платы:");
+                        for (MotherBoard mompls : m) {
+                            mompls.getInfo();
+                        }
+                        repeat = scan.nextLine();
+                        repeat();
                         break;
                     case 6:
-                        o[0] = new Processor();
+                        m.clear();
+                        repeat = scan.nextLine();
                         System.out.println("Готово!");
+                        repeat();
                         break;
+
                     case 7:
-                        o[1].Create();
+                        g.add(new GraphicCard());
+                        repeat = scan.nextLine();
+                        repeat();
                         break;
                     case 8:
-                        o[1].Show();
-                        ;
+                        System.out.println("Видеокарты:");
+                        for (GraphicCard gc : g) {
+                            gc.getInfo();
+                        }
+                        repeat = scan.nextLine();
+                        repeat();
                         break;
                     case 9:
-                        o[1] = new MotherBoard();
+                        g.clear();
+                        repeat = scan.nextLine();
                         System.out.println("Готово!");
+                        repeat();
                         break;
+
                     case 10:
-                        o[2].Create();
-                        break;
-                    case 11:
-                        o[2].Show();
-                        ;
-                        break;
-                    case 12:
-                        o[2] = new GraphicCard();
-                        System.out.println("Готово!");
-                        break;                        
-                    case 13:
                         System.out.println("Программа завершена");
                         break;
                     default:
@@ -92,6 +121,5 @@ public class Shop {
             }
         }
     }
-
 
 }
