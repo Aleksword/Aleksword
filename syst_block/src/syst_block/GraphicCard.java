@@ -2,13 +2,20 @@ package syst_block;
 import java.util.Scanner;
 public class GraphicCard extends Block {
     Scanner scan = new Scanner(System.in);
-    private String name;
-   @Override
-    public void getInfo() {
-               System.out.println(name);
-    }
+    private String typemem;
     public GraphicCard(){
-        System.out.println("Название видеокарты");
-        name=scan.nextLine();
-    }           
+        this.setTypemem();
+    }
+    public void setTypemem(){
+        System.out.println("Введите тип видеопамяти вашей видео карты");
+        typemem=scan.nextLine();
+    }
+    public String getTypemem(){
+        return typemem;
+    }
+    @Override
+    public void getInfo() {
+        name += ", Тип видеопамяти "+typemem+", Стоимость " +cost;
+        System.out.println(name);
+    }
 }

@@ -2,13 +2,20 @@ package syst_block;
 import java.util.Scanner;
 public class Processor extends Block {
     Scanner scan = new Scanner(System.in);
-    private String name;
-   @Override
-    public void getInfo() {
-               System.out.println(name);
-    }
+    private String chipset;
     public Processor(){
-        System.out.println("Название видеокарты");
-        name=scan.nextLine();
+        this.setChipset();
     }           
+       public void setChipset(){
+           System.out.println("Введите чипсет, на котором работает ваш процессор");
+           chipset=scan.nextLine();
+    }
+    public String getChipset(){
+        return chipset;
+    }
+    @Override
+    public void getInfo() {
+        name += ", Чипсет "+chipset+", Стоимость " +cost;
+        System.out.println(name);
+    }
 }
