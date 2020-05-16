@@ -23,7 +23,5 @@ public abstract class Block {
     public double getCost(){
         return cost;
     }
-    public void getInfo() {
-        System.out.println(name);
-    }
+    public abstract void getInfo();
 }

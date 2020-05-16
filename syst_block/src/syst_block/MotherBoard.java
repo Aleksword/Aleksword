@@ -11,7 +11,6 @@ public class MotherBoard extends Block {
         System.out.println("Введите производителя вашей метринской платы");
         prod=scan.nextLine();
     }
-    @Override
     public void getInfo() {
         name += ", Производитель "+prod+", Стоимость " +cost;
         System.out.println(name);

@@ -13,7 +13,6 @@ public class Processor extends Block {
     public String getChipset(){
         return chipset;
     }
-    @Override
     public void getInfo() {
         name += ", Чипсет "+chipset+", Стоимость " +cost;
         System.out.println(name);

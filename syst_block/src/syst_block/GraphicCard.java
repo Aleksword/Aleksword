@@ -13,7 +13,6 @@ public class GraphicCard extends Block {
     public String getTypemem(){
         return typemem;
     }
-    @Override
     public void getInfo() {
         name += ", Тип видеопамяти "+typemem+", Стоимость " +cost;
         System.out.println(name);
